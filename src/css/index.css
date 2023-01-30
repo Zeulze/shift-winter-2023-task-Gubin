@@ -22,10 +22,10 @@ body, html {
 
 .menu__item {
     margin-right: 20px;
-    margin-top: 10px;
+    margin-bottom: 30px;
 
     width: 300px;
-    border: 1px solid red;
+    /*border: 1px solid red;*/
 }
 
 .menu__item-image_wrapper {
@@ -39,7 +39,18 @@ body, html {
 }
 
 .menu__item-name {
+    height: 60px;
+
     font-size: 20px;
     font-family: "Comic Sans MS", sans-serif;
 }
+
+.menu__item-ingredients {
+    font-size: 15px;
+    font-family: "Arial", sans-serif;
+    opacity: .85;
+
+    line-height: 25px;
+}
+
 
