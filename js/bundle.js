@@ -2,6 +2,25 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/modules/getPizzas.js":
+/*!*************************************!*\
+  !*** ./src/js/modules/getPizzas.js ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+async function getPizzas(url) {
+  return await fetch(url).then((resp) => resp.json());
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getPizzas);
+
+
+/***/ }),
+
 /***/ "./src/js/modules/ingredients.js":
 /*!***************************************!*\
   !*** ./src/js/modules/ingredients.js ***!
@@ -39,10 +58,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _ingredients__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ingredients */ "./src/js/modules/ingredients.js");
 
 
-async function getPizzas(url) {
+function showPizzas(pizzas) {
   const menuSection = document.querySelector(".menu");
-
-  const pizzas = await fetch(url).then((resp) => resp.json());
 
   pizzas.forEach((pizza) => {
     const div = document.createElement("div");
@@ -65,7 +82,7 @@ async function getPizzas(url) {
   });
 }
 
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getPizzas);
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showPizzas);
 
 
 /***/ })
@@ -134,11 +151,22 @@ var __webpack_exports__ = {};
   \*************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_pizzas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/pizzas */ "./src/js/modules/pizzas.js");
+/* harmony import */ var _modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/getPizzas */ "./src/js/modules/getPizzas.js");
 
 
 
 
-(0,_modules_pizzas__WEBPACK_IMPORTED_MODULE_0__["default"])("https://shift-winter-2023-backend.onrender.com/api/pizza");
+
+async function App() {
+  const pizzas = await (
+    await _modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__["default"]
+  )("https://shift-winter-2023-backend.onrender.com/api/pizza");
+
+  (0,_modules_pizzas__WEBPACK_IMPORTED_MODULE_0__["default"])(pizzas);
+  console.log(pizzas);
+}
+
+App();
 
 })();
 

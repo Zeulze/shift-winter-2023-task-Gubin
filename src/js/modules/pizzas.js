@@ -1,9 +1,7 @@
 import showIngredients from "./ingredients";
 
-async function getPizzas(url) {
+function showPizzas(pizzas) {
   const menuSection = document.querySelector(".menu");
-
-  const pizzas = await fetch(url).then((resp) => resp.json());
 
   pizzas.forEach((pizza) => {
     const div = document.createElement("div");
@@ -26,4 +24,4 @@ async function getPizzas(url) {
   });
 }
 
-export default getPizzas;
+export default showPizzas;
