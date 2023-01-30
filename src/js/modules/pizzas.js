@@ -11,7 +11,7 @@ async function getPizzas(url) {
     console.log(pizza.price);
 
     div.classList.add("menu__item");
-    div.innerHTML = `
+    div.innerHTML += `
     <div class="menu__item-image_wrapper">
         <img class="menu__item-image" src="${pizza.img}" alt="${pizzas.name}">
     </div>

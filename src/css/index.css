@@ -7,6 +7,7 @@ body, html {
     padding: 0;
 
     font-family: "Arial", serif;
+    background-color: #cce6ff;
 }
 
 .container {
@@ -18,7 +19,7 @@ body, html {
     background-color: #cce6ff;
     z-index: 1;
 
-    margin-bottom: 10px;
+    margin-bottom: 50px;
     box-shadow: 0 2px 5px #cce6ff;
 }
 
@@ -29,6 +30,10 @@ body, html {
     justify-content: space-between;
     align-items: center;
     align-content: center;
+}
+
+.header-container {
+    border-bottom: 1px solid #66b5ff;
 }
 
 .logo {
@@ -46,24 +51,30 @@ body, html {
     color: #66b5ff;
 }
 
-
+.section_our-pizza {
+    margin-bottom: 50px;
+}
 
 .menu {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+
+
 }
 
 .menu__item {
     position: relative;
 
-    /*background-color: white;*/
+    background-color: white;
+    border-radius: 20px;
+    border: 1px solid #66b5ff;
+    padding: 5px;
 
     margin-right: 20px;
     margin-bottom: 70px;
 
     width: 300px;
-    /*border: 1px solid red;*/
 }
 
 .menu__item:nth-child(4n) {
@@ -107,6 +118,9 @@ body, html {
     top: calc(100% - 60px);
 
     width: 100%;
+
+    padding-left: 5px;
+    padding-right: 5px;
 
 }
 
