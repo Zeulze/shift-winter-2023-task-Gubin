@@ -9,23 +9,65 @@ body, html {
     font-family: "Arial", serif;
 }
 
-
-.menu {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
+.container {
     max-width: 1400px;
-
     margin: 0 auto;
 }
 
+.header {
+    background-color: #cce6ff;
+    z-index: 1;
+
+    margin-bottom: 10px;
+    box-shadow: 0 2px 5px #cce6ff;
+}
+
+.header-container,
+.header__items-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+}
+
+.logo {
+    width: 100px;
+    cursor: pointer;
+}
+
+.header__name {
+    cursor: pointer;
+    color: #0084ff;
+    font-size: 52px;
+}
+
+.header__name::selection{
+    color: #66b5ff;
+}
+
+
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
 .menu__item {
+    position: relative;
+
+    /*background-color: white;*/
+
     margin-right: 20px;
-    margin-bottom: 30px;
+    margin-bottom: 70px;
 
     width: 300px;
     /*border: 1px solid red;*/
+}
+
+.menu__item:nth-child(4n) {
+    margin-right: 0;
 }
 
 .menu__item-image_wrapper {
@@ -51,6 +93,71 @@ body, html {
     opacity: .85;
 
     line-height: 25px;
+    margin-bottom: 100px;
+
 }
 
+.menu__item-footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 
+    position: absolute;
+    left: 0;
+    top: calc(100% - 60px);
+
+    width: 100%;
+
+}
+
+.menu__item-price {
+    margin: 10px 0 0;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.menu__item-btn {
+    height: 40px;
+
+    cursor: pointer;
+    background-color: #cce6ff;
+    color: #0084ff;
+
+    font-size: 16px;
+    /*font-weight: bolder;*/
+
+    border: 1px solid #cce6ff;
+    border-radius: 7px;
+
+    animation: ease .5s outBtnColor;
+
+}
+
+.menu__item-btn:hover {
+    animation: ease .5s overBtnColor;
+    background-color: #66b5ff;
+}
+
+@keyframes overBtnColor {
+    from  {
+        background-color: #cce6ff
+    }
+    to {
+        background-color: #66b5ff
+    }
+}
+
+@keyframes outBtnColor {
+    from  {
+        background-color: #66b5ff
+    }
+    to {
+        background-color: #cce6ff
+    }
+}
+
+.header__btn {
+    height: 40px;
+
+    border: 1px solid #66b5ff;
+}

@@ -8,6 +8,8 @@ async function getPizzas(url) {
   pizzas.forEach((pizza) => {
     const div = document.createElement("div");
 
+    console.log(pizza.price);
+
     div.classList.add("menu__item");
     div.innerHTML = `
     <div class="menu__item-image_wrapper">
@@ -15,6 +17,10 @@ async function getPizzas(url) {
     </div>
     <p class="menu__item-name">${pizza.name}</p>
     <p class="menu__item-ingredients">${showIngredients(pizza.ingredients)}</p>
+    <div class="menu__item-footer">
+        <p class="menu__item-price">От ${pizza.price.default}₽</p>
+        <button class="menu__item-btn">Выбрать</button>
+    </div>
   `;
     menuSection.append(div);
   });
