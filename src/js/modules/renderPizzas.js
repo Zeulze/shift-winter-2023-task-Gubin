@@ -5,7 +5,9 @@ function toRenderPizzas(pizzas) {
 
   pizzas.forEach((pizza) => {
     const div = document.createElement("div");
-
+    const pizzaBasketCheck = localStorage.getItem(pizza.id)
+      ? "В корзине"
+      : "Выбрать";
     div.classList.add("menu__item");
     div.innerHTML += `
     <div class="menu__item-image_wrapper">
@@ -17,7 +19,7 @@ function toRenderPizzas(pizzas) {
     <div class="menu__item-footer">
         <p class="menu__item-price">От ${pizza.price.default}₽</p>
         <hr>
-        <button class="menu__item-btn" id="menu__item-btn">Выбрать</button>
+        <button class="menu__item-btn" id="menu__item-btn">${pizzaBasketCheck}</button>
     </div>
      
   `;
