@@ -23,8 +23,7 @@ function modal(pizzas) {
     size: "",
   };
 
-  //Понимаю, что ужас)))
-  //Нужно отрефакторить как-нибудь
+  //Нужен рефакторинг
 
   btn.forEach((item, index) => {
     item.addEventListener("click", () => {

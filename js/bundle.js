@@ -35,9 +35,8 @@ function showIngredients(ingredients) {
   let str = "";
 
   ingredients.forEach((item) => (str += item + ", "));
-  str = str[0].toUpperCase() + str.slice(1, str.length - 2);
 
-  return str;
+  return str[0].toUpperCase() + str.slice(1, str.length - 2);
 }
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showIngredients);
