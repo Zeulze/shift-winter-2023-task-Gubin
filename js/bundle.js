@@ -44,6 +44,38 @@ function showIngredients(ingredients) {
 
 /***/ }),
 
+/***/ "./src/js/modules/modal-remove.js":
+/*!****************************************!*\
+  !*** ./src/js/modules/modal-remove.js ***!
+  \****************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function modalRemoveHandler(modal) {
+  document.addEventListener("keydown", modalRemoveOnKeydown);
+  document.addEventListener("click", modalRemoveOnClick);
+
+  function modalRemoveOnKeydown(e) {
+    if (e.code === "Escape" && modal.classList.contains("show")) {
+      modal.classList.remove("show");
+    }
+  }
+
+  function modalRemoveOnClick(e) {
+    if (e.target === modal) {
+      modal.classList.remove("show");
+    }
+  }
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (modalRemoveHandler);
+
+
+/***/ }),
+
 /***/ "./src/js/modules/modal.js":
 /*!*********************************!*\
   !*** ./src/js/modules/modal.js ***!
@@ -54,7 +86,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ingredients__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ingredients */ "./src/js/modules/ingredients.js");
+/* harmony import */ var _ingredients_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ingredients.js */ "./src/js/modules/ingredients.js");
+/* harmony import */ var _modal_remove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal-remove.js */ "./src/js/modules/modal-remove.js");
+
 
 
 function modal(pizzas) {
@@ -80,6 +114,7 @@ function modal(pizzas) {
     size: "",
   };
 
+  (0,_modal_remove_js__WEBPACK_IMPORTED_MODULE_1__["default"])(modal);
   //Нужен рефакторинг
 
   btn.forEach((item, index) => {
@@ -132,20 +167,6 @@ function modal(pizzas) {
       setModalHeaderBtn(modalHeaderBtn, btnIndex);
     });
   });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.code === "Escape" && modal.classList.contains("show")) {
-      modal.classList.remove("show");
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("show");
-    }
-  });
-
-  modalHeaderPrice.forEach((item, index) => {});
 
   function setModalPrices(prices, index) {
     prices.default = pizzas[index].price.default;
@@ -202,7 +223,7 @@ function modal(pizzas) {
 
   function setIngredients(pizza) {
     pizzaMainInfo.ingredients = `
-      ${(0,_ingredients__WEBPACK_IMPORTED_MODULE_0__["default"])(pizza.ingredients)}
+      ${(0,_ingredients_js__WEBPACK_IMPORTED_MODULE_0__["default"])(pizza.ingredients)}
     `;
 
     modal.querySelector(".modal__ingredients").textContent =

@@ -1,4 +1,5 @@
-import showIngredients from "./ingredients";
+import showIngredients from "./ingredients.js";
+import modalRemoveHandler from "./modal-remove.js";
 
 function modal(pizzas) {
   const btn = document.querySelectorAll("#menu__item-btn"),
@@ -23,6 +24,7 @@ function modal(pizzas) {
     size: "",
   };
 
+  modalRemoveHandler(modal);
   //Нужен рефакторинг
 
   btn.forEach((item, index) => {
@@ -75,20 +77,6 @@ function modal(pizzas) {
       setModalHeaderBtn(modalHeaderBtn, btnIndex);
     });
   });
-
-  document.addEventListener("keydown", (e) => {
-    if (e.code === "Escape" && modal.classList.contains("show")) {
-      modal.classList.remove("show");
-    }
-  });
-
-  document.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.classList.remove("show");
-    }
-  });
-
-  modalHeaderPrice.forEach((item, index) => {});
 
   function setModalPrices(prices, index) {
     prices.default = pizzas[index].price.default;

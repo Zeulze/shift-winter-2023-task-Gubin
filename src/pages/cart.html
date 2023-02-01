@@ -5,6 +5,7 @@
     <title>Корзина</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/form.css">
     <script type="module" src="../../src/js/modules/renderCart.js"></script>
 </head>
 <body>
@@ -25,8 +26,53 @@
     Корзина пустая!
 </div>
 </section>
-<section class="form">
-
-</section>
+<div class="modal">
+    <div class="modal__content form">
+        <form action="#" method="post" class="form__details">
+            <div class="modal__title">Персональные данные:</div>
+            <div class="form__item">
+                <span class="form__item-label">Имя</span>
+                <input required placeholder="Имя" name="firstname" type="text" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label">Фамилия</span>
+                <input required placeholder="Фамилия" name="lastname" type="lastname" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label">Дата рождения</span>
+                <input required placeholder="Дата рождения" name="birthDate" type="text" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label ">Адрес регистрации</span>
+                <input required placeholder="Адрес регистрации" name="registrationAddress" type="registrationAddress" class="modal__input">
+            </div>
+        </form>
+<!--        Address-->
+        <form action="#" method="post" class="form__destination">
+            <div class="modal__title">Адрес доставки: </div>
+            <div class="form__item">
+                <span class="form__item-label">Город</span>
+                <input required placeholder="Город" name="city" type="text" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label">Улица</span>
+                <input required placeholder="Улица" name="street" type="lastname" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label">Дом</span>
+                <input required placeholder="Дом" name="house" type="text" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label ">Квартира</span>
+                <input required placeholder="Квартира" name="apartment" type="text" class="modal__input">
+            </div>
+            <div class="form__item">
+                <span class="form__item-label ">Комментарий для доставки</span>
+                <textarea rows="4" cols="50" required placeholder="Комментарий для доставки" name="comment" type="" class="modal__input input_textarea"></textarea>
+            </div>
+            <button class="menu__item-btn form__btn ">Оформить заказ</button>
+        </form>
+    </div>
+</div>
 </body>
 </html>

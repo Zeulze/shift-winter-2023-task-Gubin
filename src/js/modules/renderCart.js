@@ -1,5 +1,6 @@
 import showIngredients from "./ingredients.js";
 import removeItems from "./removeCartItems.js";
+import formRender from "./form.js";
 
 const cart = document.querySelector(".cart"),
   emptyCart = document.querySelector(".empty__cart"),
@@ -12,6 +13,7 @@ async function render() {
   cartItemsId = [];
   let count = 0;
 
+  await formRender();
   removeItems(cart);
 
   for (let i = 0; i <= +localStorage.getItem("NumberOfItems"); i++) {
@@ -46,7 +48,8 @@ async function render() {
 }
 
 function toOrderBtnHandler(e) {
-  console.log("working");
+  const modal = document.querySelector(".modal");
+  modal.classList.add("show");
 }
 
 function deleteBtnHandle(e) {
