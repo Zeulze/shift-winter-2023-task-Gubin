@@ -16,16 +16,17 @@ async function formRender() {
     address: {},
   };
 
+  //Выдает ошибку 400, с сообщением, что неверный id у пиццы, скрин есть в ДС
+
   const postData = async (url, data) => {
+    console.log(data);
     const res = await fetch(url, {
       method: "POST",
-      body: data,
       headers: {
         "Content-type": "application/json",
       },
+      body: data,
     });
-
-    console.log(data);
 
     return await res.json();
   };
@@ -36,12 +37,11 @@ async function formRender() {
     form.address = createFormObj(formDestination);
 
     removeCartItems(cart);
-
+    console.log(createOrder(form));
     const json = JSON.stringify(createOrder(form));
-    console.log(json);
 
     postData(
-      "https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder",
+      "https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder/",
       json
     )
       .then((data) => {
