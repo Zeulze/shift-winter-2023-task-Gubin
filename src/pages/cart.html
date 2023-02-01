@@ -5,6 +5,7 @@
     <title>Корзина</title>
     <link rel="stylesheet" href="../css/index.css">
     <link rel="stylesheet" href="../css/cart.css">
+    <script type="module" src="../../src/js/modules/renderCart.js"></script>
 </head>
 <body>
 <header class="header">
@@ -13,14 +14,16 @@
             <img class="logo" src="../img/logo.svg" alt="logo">
             <span class="header__name">Pizza time</span>
         </a>
-        <a class="header__btn menu__item-btn" href="../../index.html">На главную</a>
+        <button class="header__btn menu__item-btn order__btn">Заказать</button>
     </div>
 </header>
 <section class="section_our-pizza container">
     <h1 style ="font-size: 32px; color: #0090ff;">Корзина:</h1>
 </section>
-<section class="cart">
-
+<section class="cart container">
+<div class="empty__cart">
+    Корзина пустая!
+</div>
 </section>
 <section class="form">
 

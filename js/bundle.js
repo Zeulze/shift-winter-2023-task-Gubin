@@ -337,6 +337,7 @@ async function App() {
     await _modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__["default"]
   )("https://shift-winter-2023-backend.onrender.com/api/pizza");
 
+  localStorage.setItem("NumberOfItems", pizzas.length);
   (0,_modules_renderPizzas__WEBPACK_IMPORTED_MODULE_0__["default"])(pizzas);
   (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(pizzas);
 }

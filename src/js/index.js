@@ -9,6 +9,7 @@ async function App() {
     await getPizzas
   )("https://shift-winter-2023-backend.onrender.com/api/pizza");
 
+  localStorage.setItem("NumberOfItems", pizzas.length);
   toRenderPizzas(pizzas);
   modal(pizzas);
 }
