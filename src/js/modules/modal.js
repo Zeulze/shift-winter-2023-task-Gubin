@@ -25,7 +25,7 @@ function modal(pizzas) {
   };
 
   modalRemoveHandler(modal);
-  //Нужен рефакторинг
+  //Понимаю, что каша )) Нужен рефакторинг
 
   btn.forEach((item, index) => {
     item.addEventListener("click", () => {
