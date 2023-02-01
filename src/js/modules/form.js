@@ -35,9 +35,7 @@ async function formRender() {
     form.address = createFormObj(formDestination);
 
     removeCartItems(cart);
-    const postForm = createOrder(form);
-    const postFormHelp = changeId(postForm);
-    const json = JSON.stringify(postFormHelp);
+    const json = JSON.stringify(changeId(createOrder(form)));
 
     postData(
       "https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder/",
