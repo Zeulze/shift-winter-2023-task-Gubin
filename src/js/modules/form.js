@@ -16,8 +16,6 @@ async function formRender() {
     address: {},
   };
 
-  //Выдает ошибку 400 с сообщением, что неверный id у пиццы, скрин есть в ДС
-
   const postData = async (url, data) => {
     console.log(data);
     const res = await fetch(url, {
@@ -37,8 +35,9 @@ async function formRender() {
     form.address = createFormObj(formDestination);
 
     removeCartItems(cart);
-    console.log(createOrder(form));
-    const json = JSON.stringify(createOrder(form));
+    const postForm = createOrder(form);
+    const postFormHelp = changeId(postForm);
+    const json = JSON.stringify(postFormHelp);
 
     postData(
       "https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder/",
@@ -49,14 +48,20 @@ async function formRender() {
       })
       .catch(() => {
         console.log("bad");
-      })
-      .finally(() => {});
+      });
 
     clearLocalStorage();
     emptyCart.classList.add("show-cart");
   });
 
   modalRemoveHandler(modal);
+
+  function changeId(form) {
+    form.pizzas.forEach((item) => {
+      item.id = +item.id;
+    });
+    return form;
+  }
 
   function createFormObj(form) {
     const formData = new FormData(form);
