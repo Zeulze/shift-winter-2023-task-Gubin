@@ -16,7 +16,7 @@ async function formRender() {
     address: {},
   };
 
-  //Выдает ошибку 400, с сообщением, что неверный id у пиццы, скрин есть в ДС
+  //Выдает ошибку 400 с сообщением, что неверный id у пиццы, скрин есть в ДС
 
   const postData = async (url, data) => {
     console.log(data);
