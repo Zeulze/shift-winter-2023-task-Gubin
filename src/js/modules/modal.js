@@ -58,7 +58,7 @@ function modal(pizzas) {
     const pizzaInfo = {
       id: `${pizzaMainInfo.idPizza}`,
       size: `${pizzaMainInfo.size}`,
-      crust: "cheesy",
+      crust: "",
     };
 
     if (!localStorage.getItem(pizzaMainInfo.idPizza)) {

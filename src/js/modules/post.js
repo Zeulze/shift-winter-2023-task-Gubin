@@ -6,7 +6,7 @@ async function postData(url, data, modal, cart) {
   const emptyCart = document.querySelector(".empty__cart");
   const messages = {
     Succes: "Ваш заказ принят",
-    Error: "Ошибка, повторите попытку позже",
+    Error: "ошибка, повторите попытку позже",
   };
 
   const res = await fetch(url, {
@@ -19,7 +19,8 @@ async function postData(url, data, modal, cart) {
   console.log(res.status);
 
   if (res.status === 200 || res.status === 201) {
-    const message = createResultModalMessage(messages.Succes);
+    const result = await res.json();
+    const message = createResultModalMessage(messages.Succes, result.order.sum);
     const orderBtn = document.querySelector(".order__btn");
     removeCartItems(cart);
     clearLocalStorage();
@@ -27,7 +28,10 @@ async function postData(url, data, modal, cart) {
     emptyCart.classList.add("show-cart");
     resultMessageHandle(modal, message);
   } else {
-    const message = createResultModalMessage(messages.Error);
+    const message = createResultModalMessage(
+      `${res.status} ${messages.Error}`,
+      0
+    );
     resultMessageHandle(modal, message);
   }
 
@@ -43,13 +47,16 @@ async function postData(url, data, modal, cart) {
     }, 3500);
   }
 
-  function createResultModalMessage(message) {
+  function createResultModalMessage(message, sum) {
     const div = document.createElement("div");
     div.classList.add("modal__content");
     div.classList.add("message");
     div.innerHTML = `
       <div class="">
        ${message}
+      </div>
+      <div class="">
+       Сумма заказа: ${sum} руб
       </div>
     `;
     return div;

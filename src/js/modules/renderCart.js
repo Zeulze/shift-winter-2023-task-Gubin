@@ -14,7 +14,7 @@ async function render() {
   cartItemsId = [];
   let count = 0;
 
-  await formRender();
+  formRender();
   removeItems(cart);
 
   for (let i = 0; i <= +localStorage.getItem("NumberOfItems"); i++) {

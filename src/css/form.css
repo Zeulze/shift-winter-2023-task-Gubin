@@ -76,7 +76,9 @@
 
     font-size: 32px;
 
-    justify-content: center;
+    flex-direction: column;
+    justify-content: space-around;
+
     align-items: center;
     text-align: center;
 

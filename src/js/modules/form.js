@@ -15,7 +15,7 @@ function formRender() {
   };
 
   const urlPost =
-    "https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder/";
+    "https://shift-winter-2023-backend.onrender.com/api/pizza/createOrder/  ";
 
   modalRemoveHandler(modal);
 
