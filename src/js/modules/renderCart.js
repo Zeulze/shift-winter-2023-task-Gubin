@@ -1,5 +1,6 @@
 import showIngredients from "./ingredients.js";
 import removeItems from "./removeCartItems.js";
+import toOrderBtnHandler from "./orderCartBtn.js";
 import formRender from "./form.js";
 
 const cart = document.querySelector(".cart"),
@@ -45,11 +46,6 @@ async function render() {
   }
 
   cart.addEventListener("click", deleteBtnHandle);
-}
-
-function toOrderBtnHandler(e) {
-  const modal = document.querySelector(".modal");
-  modal.classList.add("show");
 }
 
 function deleteBtnHandle(e) {

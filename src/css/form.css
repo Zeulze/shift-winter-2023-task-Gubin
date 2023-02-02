@@ -62,3 +62,24 @@
     height: 100px;
     resize: none;
 }
+
+.hide {
+    display: none;
+}
+
+.message {
+    height: 250px;
+    width: 450px;
+
+    left: calc(50% - 225px);
+    top: calc(50% - 125px);
+
+    font-size: 32px;
+
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 20px;
+}
+

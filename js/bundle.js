@@ -354,9 +354,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 async function App() {
-  const pizzas = await (
-    await _modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__["default"]
-  )("https://shift-winter-2023-backend.onrender.com/api/pizza");
+  const pizzas = await (0,_modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__["default"])(
+    "https://shift-winter-2023-backend.onrender.com/api/pizza"
+  );
 
   localStorage.setItem("NumberOfItems", pizzas.length);
   (0,_modules_renderPizzas__WEBPACK_IMPORTED_MODULE_0__["default"])(pizzas);
