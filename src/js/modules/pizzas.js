@@ -6,8 +6,6 @@ function showPizzas(pizzas) {
   pizzas.forEach((pizza) => {
     const div = document.createElement("div");
 
-    console.log(pizza.price);
-
     div.classList.add("menu__item");
     div.innerHTML += `
     <div class="menu__item-image_wrapper">

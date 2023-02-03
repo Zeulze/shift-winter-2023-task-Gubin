@@ -65,7 +65,6 @@ async function renderItem(id, price, pizza, localStor) {
   const item = JSON.parse(localStorage.getItem(id));
   let cartItem = document.createElement("div");
 
-  console.log(pizza);
   cartItem.classList.add("cart__item");
   cartItem.innerHTML = `
     <div class="cart__item__left">
@@ -104,8 +103,6 @@ function setPrice(size, id, pizza) {
   sizes.small = pizza.price.default;
   sizes.medium = pizza.price.size.medium;
   sizes.large = pizza.price.size.large;
-
-  console.log(sizes);
 
   if (size === "small") return sizes.small;
   if (size === "medium") return sizes.small + sizes.medium;

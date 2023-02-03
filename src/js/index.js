@@ -9,7 +9,6 @@ async function App() {
     "https://shift-winter-2023-backend.onrender.com/api/pizza"
   );
 
-  console.log(pizzas);
   localStorage.setItem("NumberOfItems", pizzas.length);
   toRenderPizzas(pizzas);
   modal(pizzas);

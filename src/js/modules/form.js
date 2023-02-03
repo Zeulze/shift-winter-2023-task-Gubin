@@ -1,6 +1,7 @@
 import modalRemoveHandler from "./modal-remove.js";
 import createOrder from "./createOrder.js";
 import postData from "./post.js";
+import toValidate from "./validation.js";
 
 function formRender() {
   const modal = document.querySelector(".modal"),
@@ -21,12 +22,13 @@ function formRender() {
 
   submitBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    form.user = createFormObj(formDetails);
-    form.address = createFormObj(formDestination);
+    if (toValidate()) {
+      form.user = createFormObj(formDetails);
+      form.address = createFormObj(formDestination);
 
-    const json = JSON.stringify(changeId(createOrder(form)));
-
-    postData(urlPost, json, modal, cart);
+      const json = JSON.stringify(changeId(createOrder(form)));
+      postData(urlPost, json, modal, cart);
+    }
   });
 
   function changeId(form) {

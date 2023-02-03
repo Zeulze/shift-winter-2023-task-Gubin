@@ -31,47 +31,75 @@
         <form action="#" method="post" class="form__details">
             <div class="modal__title">Персональные данные:</div>
             <div class="form__item">
-                <span class="form__item-label">Имя</span>
+                <span class="form__item-label">
+                    <span class="form__item-label">Имя*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Имя" name="firstname" type="text" class="modal__input">
             </div>
             <div class="form__item">
-                <span class="form__item-label">Фамилия</span>
+                <span class="form__item-label">
+                    <span class="form__item-label">Фамилия*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Фамилия" name="lastname" type="lastname" class="modal__input">
             </div>
             <div class="form__item">
-                <span class="form__item-label">Дата рождения</span>
-                <input required placeholder="Дата рождения" name="birthDate" type="text" class="modal__input">
+                <span class="form__item-label">
+                    <span class="form__item-label">Дата рождения*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
+
+                <input required placeholder="Дата рождения" name="birthDate" type="date" class="modal__input">
             </div>
             <div class="form__item">
-                <span class="form__item-label ">Адрес регистрации</span>
+                <span class="form__item-label">
+                    <span class="form__item-label ">Адрес проживания*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Адрес регистрации" name="registrationAddress" type="registrationAddress" class="modal__input">
             </div>
+            <button class="menu__item-btn form__btn ">Оформить заказ</button>
         </form>
 <!--        Address-->
         <form action="#" method="post" class="form__destination">
-            <div class="modal__title">Адрес доставки: </div>
+            <div class="modal__title">Адрес доставки:</div>
             <div class="form__item">
-                <span class="form__item-label">Город</span>
+                <span class="form__item-label">
+                    <span class="form__item-label">Город*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Город" name="city" type="text" class="modal__input">
             </div>
             <div class="form__item">
-                <span class="form__item-label">Улица</span>
+                <span class="form__item-label">
+                    <span class="form__item-label">Улица*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Улица" name="street" type="lastname" class="modal__input">
             </div>
             <div class="form__item">
-                <span class="form__item-label">Дом</span>
+                <span class="form__item-label">
+                    <span class="form__item-label">Дом*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Дом" name="house" type="text" class="modal__input">
             </div>
             <div class="form__item">
-                <span class="form__item-label ">Квартира</span>
+                <span class="form__item-label">
+                    <span class="form__item-label ">Квартира*</span>
+                    <span class="form__item-wrong"></span>
+                </span>
                 <input required placeholder="Квартира" name="apartment" type="text" class="modal__input">
+<!--                <span class="form__item-label ">Ошибка</span>-->
             </div>
             <div class="form__item">
                 <span class="form__item-label ">Комментарий для доставки</span>
                 <textarea rows="4" cols="50" required placeholder="Комментарий для доставки" name="comment" class="modal__input input_textarea"></textarea>
             </div>
-            <button class="menu__item-btn form__btn ">Оформить заказ</button>
+
         </form>
+
     </div>
 </div>
 </body>

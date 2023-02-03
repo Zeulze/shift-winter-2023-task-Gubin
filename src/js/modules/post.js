@@ -16,7 +16,6 @@ async function postData(url, data, modal, cart) {
     },
     body: data,
   });
-  console.log(res.status);
 
   if (res.status === 200 || res.status === 201) {
     const result = await res.json();
