@@ -11,21 +11,28 @@ function toValidate() {
     apartment = document.querySelector("[name = 'apartment']");
 
   const maxDate = "1900-01-01";
-  const initDate = "1970-01-01";
   const dateMin = 1000 * 60 * 60 * 24 * 365 * 18;
+  const arrayFields = [
+    [firstname, 2, 30],
+    [lastname, 2, 30],
+    [city, 2, 30],
+    [street, 2, 30],
+    [house, 2, 30],
+    [apartment, 2, 30],
+    [registrationAddress, 10, 50],
+  ];
+  const borderStyles = {
+    success: "1px solid black",
+    error: "1px solid red",
+  };
 
   initFields();
   let flag = true;
   return validating();
 
   function validating() {
-    textValues(firstname, 2, 30);
-    textValues(lastname, 2, 30);
-    textValues(registrationAddress, 10, 50);
-    textValues(city, 2, 30);
-    textValues(street, 2, 30);
-    textValues(house, 2, 30);
-    textValues(apartment, 2, 30);
+    arrayFields.forEach((field) => textValues(field[0], field[1], field[2]));
+    dateValidate(date);
     return flag;
   }
 
@@ -33,47 +40,40 @@ function toValidate() {
     const wrongField = field.parentNode.querySelector(".form__item-wrong");
     if (!(field.value.length <= max && field.value.length >= min)) {
       wrongField.textContent = `Должно содержать min: ${min}, max: ${max}`;
+      field.style.border = borderStyles.error;
       return (flag = false);
     }
     return 1;
   }
 
+  function dateValidate(field) {
+    const wrongField = field.parentNode.querySelector(".form__item-wrong");
+    const currentDate = Date.now();
+    const dateMax = Math.abs(Date.parse(maxDate));
+    const inputDate = Date.parse(field.value);
+
+    if (!(Math.abs(inputDate) <= dateMax)) {
+      wrongField.textContent = `Недопустимая дата рождения`;
+      field.style.border = borderStyles.error;
+      return (flag = false);
+    }
+    if (inputDate > 0) {
+      if (!(currentDate - inputDate >= dateMin)) {
+        wrongField.textContent = `Должно быть больше 18 лет`;
+        field.style.border = borderStyles.error;
+        return (flag = false);
+      }
+    }
+
+    return 1;
+  }
+
   function initFields() {
-    const fields = document.querySelectorAll(".form__item-wrong");
-    fields.forEach((field) => (field.textContent = ""));
+    const wrongTextFields = document.querySelectorAll(".form__item-wrong");
+    const inputs = document.querySelectorAll(".modal__input");
+    wrongTextFields.forEach((field) => (field.textContent = ""));
+    inputs.forEach((input) => (input.style.border = borderStyles.success));
   }
 }
 
 export default toValidate;
-
-// const obj = {
-//   firstname: {
-//     min: 2,
-//     max: 30,
-//   },
-//   lastname: {
-//     min: 2,
-//     max: 30,
-//   },
-//   registrationAddress: {
-//     min: 10,
-//     max: 50,
-//   },
-//   city: {
-//     min: 2,
-//     max: 30,
-//   },
-//   street: {
-//     min: 2,
-//     max: 30,
-//   },
-//   house: {
-//     min: 2,
-//     max: 30,
-//   },
-//
-//   apartment: {
-//     min: 2,
-//     max: 30,
-//   },
-// };
