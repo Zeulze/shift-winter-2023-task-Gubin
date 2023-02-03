@@ -2,52 +2,10 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/js/modules/getPizzas.js":
-/*!*************************************!*\
-  !*** ./src/js/modules/getPizzas.js ***!
-  \*************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-async function getPizzas(url) {
-  return await fetch(url).then((resp) => resp.json());
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getPizzas);
-
-
-/***/ }),
-
-/***/ "./src/js/modules/ingredients.js":
-/*!***************************************!*\
-  !*** ./src/js/modules/ingredients.js ***!
-  \***************************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-function showIngredients(ingredients) {
-  let str = "";
-
-  ingredients.forEach((item) => (str += item + ", "));
-
-  return str[0].toUpperCase() + str.slice(1, str.length - 2);
-}
-
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showIngredients);
-
-
-/***/ }),
-
-/***/ "./src/js/modules/modal-remove.js":
-/*!****************************************!*\
-  !*** ./src/js/modules/modal-remove.js ***!
-  \****************************************/
+/***/ "./src/js/modules/modal/modal-remove.js":
+/*!**********************************************!*\
+  !*** ./src/js/modules/modal/modal-remove.js ***!
+  \**********************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
@@ -76,18 +34,18 @@ function modalRemoveHandler(modal) {
 
 /***/ }),
 
-/***/ "./src/js/modules/modal.js":
-/*!*********************************!*\
-  !*** ./src/js/modules/modal.js ***!
-  \*********************************/
+/***/ "./src/js/modules/modal/modal.js":
+/*!***************************************!*\
+  !*** ./src/js/modules/modal/modal.js ***!
+  \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ingredients_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ingredients.js */ "./src/js/modules/ingredients.js");
-/* harmony import */ var _modal_remove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal-remove.js */ "./src/js/modules/modal-remove.js");
+/* harmony import */ var _pizza_ingredients_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../pizza/ingredients.js */ "./src/js/modules/pizza/ingredients.js");
+/* harmony import */ var _modal_remove_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modal-remove.js */ "./src/js/modules/modal/modal-remove.js");
 
 
 
@@ -115,7 +73,6 @@ function modal(pizzas) {
   };
 
   (0,_modal_remove_js__WEBPACK_IMPORTED_MODULE_1__["default"])(modal);
-  //Нужен рефакторинг
 
   btn.forEach((item, index) => {
     item.addEventListener("click", () => {
@@ -223,7 +180,7 @@ function modal(pizzas) {
 
   function setIngredients(pizza) {
     pizzaMainInfo.ingredients = `
-      ${(0,_ingredients_js__WEBPACK_IMPORTED_MODULE_0__["default"])(pizza.ingredients)}
+      ${(0,_pizza_ingredients_js__WEBPACK_IMPORTED_MODULE_0__["default"])(pizza.ingredients)}
     `;
 
     modal.querySelector(".modal__ingredients").textContent =
@@ -236,17 +193,59 @@ function modal(pizzas) {
 
 /***/ }),
 
-/***/ "./src/js/modules/renderPizzas.js":
-/*!****************************************!*\
-  !*** ./src/js/modules/renderPizzas.js ***!
-  \****************************************/
+/***/ "./src/js/modules/pizza/getPizzas.js":
+/*!*******************************************!*\
+  !*** ./src/js/modules/pizza/getPizzas.js ***!
+  \*******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
-/* harmony import */ var _ingredients__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ingredients */ "./src/js/modules/ingredients.js");
+async function getPizzas(url) {
+  return await fetch(url).then((resp) => resp.json());
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (getPizzas);
+
+
+/***/ }),
+
+/***/ "./src/js/modules/pizza/ingredients.js":
+/*!*********************************************!*\
+  !*** ./src/js/modules/pizza/ingredients.js ***!
+  \*********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+function showIngredients(ingredients) {
+  let str = "";
+
+  ingredients.forEach((item) => (str += item + ", "));
+
+  return str[0].toUpperCase() + str.slice(1, str.length - 2);
+}
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (showIngredients);
+
+
+/***/ }),
+
+/***/ "./src/js/modules/pizza/renderPizzas.js":
+/*!**********************************************!*\
+  !*** ./src/js/modules/pizza/renderPizzas.js ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _ingredients__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ingredients */ "./src/js/modules/pizza/ingredients.js");
 
 
 function toRenderPizzas(pizzas) {
@@ -344,9 +343,9 @@ var __webpack_exports__ = {};
   !*** ./src/js/index.js ***!
   \*************************/
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _modules_renderPizzas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/renderPizzas */ "./src/js/modules/renderPizzas.js");
-/* harmony import */ var _modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/getPizzas */ "./src/js/modules/getPizzas.js");
-/* harmony import */ var _modules_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal */ "./src/js/modules/modal.js");
+/* harmony import */ var _modules_pizza_renderPizzas__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./modules/pizza/renderPizzas */ "./src/js/modules/pizza/renderPizzas.js");
+/* harmony import */ var _modules_pizza_getPizzas__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/pizza/getPizzas */ "./src/js/modules/pizza/getPizzas.js");
+/* harmony import */ var _modules_modal_modal__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/modal/modal */ "./src/js/modules/modal/modal.js");
 
 
 
@@ -354,13 +353,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 async function App() {
-  const pizzas = await (0,_modules_getPizzas__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  const pizzas = await (0,_modules_pizza_getPizzas__WEBPACK_IMPORTED_MODULE_1__["default"])(
     "https://shift-winter-2023-backend.onrender.com/api/pizza"
   );
 
   localStorage.setItem("NumberOfItems", pizzas.length);
-  (0,_modules_renderPizzas__WEBPACK_IMPORTED_MODULE_0__["default"])(pizzas);
-  (0,_modules_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(pizzas);
+  (0,_modules_pizza_renderPizzas__WEBPACK_IMPORTED_MODULE_0__["default"])(pizzas);
+  (0,_modules_modal_modal__WEBPACK_IMPORTED_MODULE_2__["default"])(pizzas);
 }
 
 App();

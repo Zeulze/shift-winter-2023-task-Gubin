@@ -1,8 +1,8 @@
 "use strict";
 
-import toRenderPizzas from "./modules/renderPizzas";
-import getPizzas from "./modules/getPizzas";
-import modal from "./modules/modal";
+import toRenderPizzas from "./modules/pizza/renderPizzas";
+import getPizzas from "./modules/pizza/getPizzas";
+import modal from "./modules/modal/modal";
 
 async function App() {
   const pizzas = await getPizzas(
